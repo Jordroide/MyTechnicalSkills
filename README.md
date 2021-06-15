@@ -5,6 +5,9 @@
 
 This project is a showcase of my technical skills on Android. It reflects what I have learned and put into practice during my career and is required to evolve regularly
 
+## CI status
+![CI](https://github.com/Jordroide/SampleSmallApplication/workflows/Build%20Android%20CI/badge.svg?branch=main)
+
 ## Environment
 
 * Android Studio 4.2.1
@@ -38,4 +41,3 @@ This project is a showcase of my technical skills on Android. It reflects what I
 [kotlin-shield]: https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white
 [git-shield]:https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white
 [playstore-shield]: https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white
-

@@ -1,5 +1,6 @@
 package com.jordroid.showcase.quote.presenter.view.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -16,6 +17,7 @@ private val diffItemUtils = object : DiffUtil.ItemCallback<QuoteGenericItem>() {
     override fun areItemsTheSame(oldItem: QuoteGenericItem, newItem: QuoteGenericItem) =
         oldItem == newItem
 
+    @SuppressLint("DiffUtilEquals")
     override fun areContentsTheSame(oldItem: QuoteGenericItem, newItem: QuoteGenericItem): Boolean {
         return when {
             oldItem is QuoteItem && newItem is QuoteItem -> oldItem.anime == newItem.anime && oldItem.character == newItem.character && oldItem.quote == newItem.quote
