@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">SampleInjection</string>
+    <string name="app_name">Jordroid technical skill</string>
+
+    <string name="quoted_string" translatable="false">&#8223;%1$s&#8221;</string>
+    <string name="number_quote_item" translatable="false">Quote : %1$d</string>
+    <string name="number_quote_anime" translatable="false">Anime : %1$d</string>
 </resources>
