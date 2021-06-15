@@ -57,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:justificationMode="inter_word"
                 android:background="@drawable/background_quote"
                 android:padding="8dp"
                 android:text="@{@string/quoted_string(quoteItem.quote)}"

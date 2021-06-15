@@ -16,8 +16,13 @@ private val diffItemUtils = object : DiffUtil.ItemCallback<QuoteGenericItem>() {
     override fun areItemsTheSame(oldItem: QuoteGenericItem, newItem: QuoteGenericItem) =
         oldItem == newItem
 
-    override fun areContentsTheSame(oldItem: QuoteGenericItem, newItem: QuoteGenericItem) =
-        oldItem == newItem
+    override fun areContentsTheSame(oldItem: QuoteGenericItem, newItem: QuoteGenericItem): Boolean {
+        return when {
+            oldItem is QuoteItem && newItem is QuoteItem -> oldItem.anime == newItem.anime && oldItem.character == newItem.character && oldItem.quote == newItem.quote
+            oldItem is QuoteItemHeader && newItem is QuoteItemHeader -> oldItem.animeName == newItem.animeName
+            else -> oldItem == newItem
+        }
+    }
 }
 
 class QuoteAdapter(
