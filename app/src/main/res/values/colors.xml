@@ -10,4 +10,6 @@
 
     <color name="header">#2474DC</color>
     <color name="background">#F0F0F0</color>
+    <color name="darkContent">#000000</color>
+    <color name="quoteContent">#F4F4F4</color>
 </resources>

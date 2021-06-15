@@ -6,7 +6,7 @@
         android:color="#FFFFFF" />
     <stroke
         android:width="1dp"
-        android:color="@android:color/black"
+        android:color="@color/darkContent"
         android:dashWidth="4dp"
         android:dashGap="8dp" />
 </shape>
