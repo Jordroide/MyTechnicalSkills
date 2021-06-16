@@ -8,28 +8,28 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jordroid.showcase.databinding.QuoteItemBinding
 import com.jordroid.showcase.databinding.QuoteItemHeaderBinding
-import com.jordroid.showcase.quote.all.presenter.model.QuoteGenericItem
-import com.jordroid.showcase.quote.all.presenter.model.QuoteItem
-import com.jordroid.showcase.quote.all.presenter.model.QuoteItemHeader
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteHeaderUi
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
 
-private val diffItemUtils = object : DiffUtil.ItemCallback<QuoteGenericItem>() {
+private val diffItemUtils = object : DiffUtil.ItemCallback<QuoteUi>() {
 
-    override fun areItemsTheSame(oldItem: QuoteGenericItem, newItem: QuoteGenericItem) =
+    override fun areItemsTheSame(oldItem: QuoteUi, newItem: QuoteUi) =
         oldItem == newItem
 
     @SuppressLint("DiffUtilEquals")
-    override fun areContentsTheSame(oldItem: QuoteGenericItem, newItem: QuoteGenericItem): Boolean {
+    override fun areContentsTheSame(oldItem: QuoteUi, newItem: QuoteUi): Boolean {
         return when {
-            oldItem is QuoteItem && newItem is QuoteItem -> oldItem.character == newItem.character && oldItem.quote == newItem.quote
-            oldItem is QuoteItemHeader && newItem is QuoteItemHeader -> oldItem.animeName == newItem.animeName
+            oldItem is QuoteItemUi && newItem is QuoteItemUi -> oldItem.character == newItem.character && oldItem.quote == newItem.quote
+            oldItem is QuoteHeaderUi && newItem is QuoteHeaderUi -> oldItem.animeName == newItem.animeName
             else -> oldItem == newItem
         }
     }
 }
 
 class QuoteAdapter(
-    private val onItemClick: (quoteItem: QuoteItem) -> Unit,
-) : ListAdapter<QuoteGenericItem, RecyclerView.ViewHolder>(diffItemUtils) {
+    private val onItemClick: (quoteUi: QuoteItemUi) -> Unit,
+) : ListAdapter<QuoteUi, RecyclerView.ViewHolder>(diffItemUtils) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         when (viewType) {
@@ -55,15 +55,15 @@ class QuoteAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder.itemViewType) {
-            0 -> (holder as QuoteViewHolder).bind(getItem(position) as QuoteItem)
+            0 -> (holder as QuoteViewHolder).bind(getItem(position) as QuoteItemUi)
             else -> (holder as QuoteHeaderViewHolder).bind(
-                getItem(position) as QuoteItemHeader
+                getItem(position) as QuoteHeaderUi
             )
         }
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is QuoteItem -> 0
+            is QuoteItemUi -> 0
             else -> 1
         }
     }
@@ -71,20 +71,20 @@ class QuoteAdapter(
 
 class QuoteViewHolder(
     private val binding: QuoteItemBinding,
-    onItemClick: (quoteItem: QuoteItem) -> Unit
+    onItemClick: (quoteUi: QuoteItemUi) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var item: QuoteItem
+    private lateinit var ui: QuoteItemUi
 
     init {
         binding.root.setOnClickListener {
-            onItemClick(item)
+            onItemClick(ui)
         }
     }
 
-    fun bind(quoteItem: QuoteItem) {
-        item = quoteItem
-        binding.quoteItem = quoteItem
+    fun bind(quoteUi: QuoteItemUi) {
+        ui = quoteUi
+        binding.quoteItem = quoteUi
     }
 }
 
@@ -92,9 +92,9 @@ class QuoteHeaderViewHolder(
     private val binding: QuoteItemHeaderBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var header: QuoteItemHeader
+    private lateinit var header: QuoteHeaderUi
 
-    fun bind(quoteItemHeader: QuoteItemHeader) {
+    fun bind(quoteItemHeader: QuoteHeaderUi) {
         header = quoteItemHeader
         binding.quoteItemHeader = quoteItemHeader
     }

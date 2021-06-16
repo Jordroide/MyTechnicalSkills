@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.jordroid.showcase.R
 import com.jordroid.showcase.databinding.QuoteListFragmentBinding
-import com.jordroid.showcase.quote.all.presenter.model.QuoteGenericItem
-import com.jordroid.showcase.quote.all.presenter.model.QuoteItem
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
 import com.jordroid.showcase.quote.all.presenter.view.adapter.QuoteAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -68,7 +68,7 @@ class QuoteListFragment : Fragment() {
         _binding = null
     }
 
-    private fun updateAdapter(items: List<QuoteGenericItem>) {
+    private fun updateAdapter(items: List<QuoteUi>) {
         quoteAdapter.submitList(items)
         if (binding.quoteRefresh.isRefreshing) {
             binding.quoteRefresh.isRefreshing = false
@@ -76,7 +76,7 @@ class QuoteListFragment : Fragment() {
         binding.motionLayout.transitionToStart()
     }
 
-    private fun onItemClick(quoteItem: QuoteItem) {
+    private fun onItemClick(quoteItemUi: QuoteItemUi) {
         // TODO implement
     }
 }

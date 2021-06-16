@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jordroid.showcase.quote.all.domain.model.QuoteEntity
 import com.jordroid.showcase.quote.all.domain.usecase.QuoteUseCase
-import com.jordroid.showcase.quote.all.presenter.model.QuoteItem
-import com.jordroid.showcase.quote.all.presenter.model.QuoteItemHeader
-import com.jordroid.showcase.quote.all.presenter.model.QuoteGenericItem
 import com.jordroid.showcase.quote.all.presenter.model.QuoteStatistic
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteHeaderUi
+import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -20,9 +20,9 @@ class QuoteViewModel(
 ) : ViewModel() {
 
     private val _quoteStatistic = MutableSharedFlow<QuoteStatistic>()
-    val quoteStatistic : SharedFlow<QuoteStatistic> = _quoteStatistic
+    val quoteStatistic: SharedFlow<QuoteStatistic> = _quoteStatistic
 
-    fun getQuote(): Flow<List<QuoteGenericItem>> {
+    fun getQuote(): Flow<List<QuoteUi>> {
         return quoteUseCase.readAll().map { list ->
             _quoteStatistic.emit(QuoteStatistic(list.size, list.distinctBy { it.anime }.size))
             list.toUi()
@@ -41,20 +41,20 @@ class QuoteViewModel(
         }
     }
 
-    private fun QuoteEntity.toUi() = QuoteItem(
+    private fun QuoteEntity.toUi() = QuoteItemUi(
         anime = anime,
         character = character,
         quote = quote
     )
 
-    private fun List<QuoteEntity>.toUi(): List<QuoteGenericItem> {
-        val result = mutableListOf<QuoteGenericItem>()
+    private fun List<QuoteEntity>.toUi(): List<QuoteUi> {
+        val result = mutableListOf<QuoteUi>()
         map {
             it.toUi()
         }.groupBy {
-            it.anime
+            it.label
         }.forEach { (anime, items) ->
-            result.add(QuoteItemHeader(anime))
+            result.add(QuoteHeaderUi(anime))
             result.addAll(items)
         }
         return result
