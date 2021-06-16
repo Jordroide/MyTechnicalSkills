@@ -5,6 +5,7 @@ import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -76,6 +77,6 @@ class QuoteListFragment : Fragment() {
 
     private fun onItemClick(quoteItemUi: QuoteItemUi, view: View?) {
         view?.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-        // TODO implement
+        Toast.makeText(context, quoteItemUi.label, Toast.LENGTH_LONG).show()
     }
 }
