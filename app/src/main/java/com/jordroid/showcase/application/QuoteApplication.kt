@@ -3,6 +3,7 @@ package com.jordroid.showcase.application
 import android.app.Application
 import com.jordroid.showcase.application.database.QuoteDatabase
 import com.jordroid.showcase.application.remote.RetrofitClient
+import com.jordroid.showcase.quote.all.data.localdatasource.remote.QuoteApi
 import com.jordroid.showcase.quote.all.domain.repository.QuoteRepository
 import com.jordroid.showcase.quote.all.domain.usecase.QuoteUseCase
 import com.jordroid.showcase.quote.all.presenter.view.QuoteViewModel
@@ -44,6 +45,7 @@ val myModule = module {
     single { get<QuoteDatabase>().quoteDao() }
     single { get<QuoteDatabase>().quoteAnimeDao() }
     // API
+    single { get<Retrofit>().create(QuoteApi::class.java) }
     single { get<Retrofit>().create(QuoteAnimeApi::class.java) }
     // Retrofit
     single { RetrofitClient.getRetrofitInstance() }

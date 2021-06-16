@@ -7,11 +7,10 @@ import com.jordroid.showcase.quote.all.data.localdatasource.remote.QuoteDto
 import com.jordroid.showcase.quote.all.domain.model.QuoteEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import retrofit2.Retrofit
 
 class QuoteRepository(
-    private val quoteRoomDao: QuoteRoomDao,
-    private val retrofit: Retrofit
+    private val quoteApi: QuoteApi,
+    private val quoteRoomDao: QuoteRoomDao
 ) {
 
     fun readAll(): Flow<List<QuoteEntity>> = quoteRoomDao.readAll().map { list ->
@@ -21,7 +20,7 @@ class QuoteRepository(
     }
 
     suspend fun fetchData() {
-        with(retrofit.create(QuoteApi::class.java).getRandomQuote()) {
+        with(quoteApi.getRandomQuote()) {
             if (isSuccessful) {
                 body()?.let {
                     val quoteDto: QuoteDto? = body()
