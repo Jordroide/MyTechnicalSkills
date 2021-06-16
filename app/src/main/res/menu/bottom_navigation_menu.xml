@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigationQuoteList"
+        android:id="@+id/navigation_fragment_all"
         android:icon="@drawable/ic_quote_all"
-        android:title="@string/navigation_quote_all"/>
+        android:title="@string/navigation_quote_all" />
 
     <item
+        android:id="@+id/navigation_fragment_anime"
         android:icon="@drawable/ic_quote_anime"
-        android:id="@+id/navigationAnimeList"
-        android:title="@string/navigation_anime_list"/>
+        android:title="@string/navigation_anime_list" />
 </menu>

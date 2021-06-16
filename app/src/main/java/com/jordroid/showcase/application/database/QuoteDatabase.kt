@@ -4,19 +4,24 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jordroid.showcase.quote.data.localdatasource.database.QuoteRoom
-import com.jordroid.showcase.quote.data.localdatasource.database.QuoteRoomDao
+import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoom
+import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoomDao
+import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoom
+import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoomDao
 
 @Database(
     entities = [
-        QuoteRoom::class
+        QuoteRoom::class,
+        QuoteAnimeRoom::class
     ],
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 abstract class QuoteDatabase : RoomDatabase() {
 
-    abstract fun quoteDao() : QuoteRoomDao
+    abstract fun quoteDao(): QuoteRoomDao
+
+    abstract fun quoteAnimeDao(): QuoteAnimeRoomDao
 
     companion object {
         private const val DATABASE_NAME = "QUOTE_DATABASE"
@@ -30,7 +35,7 @@ abstract class QuoteDatabase : RoomDatabase() {
                     context.applicationContext,
                     QuoteDatabase::class.java,
                     DATABASE_NAME
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }
