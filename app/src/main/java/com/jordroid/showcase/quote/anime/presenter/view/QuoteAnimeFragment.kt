@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.jordroid.showcase.R
 import com.jordroid.showcase.databinding.QuoteAnimeFragmentBinding
 import com.jordroid.showcase.quote.anime.presenter.view.adapter.QuoteAnimeAdapter
 import kotlinx.coroutines.Dispatchers
