@@ -4,4 +4,6 @@
     <string name="quoted_string" translatable="false">&#8223;%1$s&#8221;</string>
     <string name="number_quote_item" translatable="false">Quote : %1$d</string>
     <string name="number_quote_anime" translatable="false">Anime : %1$d</string>
+    <string name="navigation_quote_all">All</string>
+    <string name="navigation_anime_list">Anime</string>
 </resources>
