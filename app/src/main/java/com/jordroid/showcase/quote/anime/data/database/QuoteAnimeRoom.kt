@@ -14,6 +14,6 @@ data class QuoteAnimeRoom(
     @ColumnInfo(name = "anime_name")
     val animeName: String,
 
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     var id: Long? = null
 )
