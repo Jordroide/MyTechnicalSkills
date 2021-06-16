@@ -21,10 +21,6 @@ class QuoteListFragment : Fragment() {
 
     private val quoteViewModel: QuoteViewModel by viewModel()
 
-    private val quoteAdapter = QuoteAdapter { item ->
-        onItemClick(item)
-    }
-
     private var _binding: QuoteListFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -36,6 +32,10 @@ class QuoteListFragment : Fragment() {
         _binding = QuoteListFragmentBinding.inflate(layoutInflater, container, false)
         val rootView = binding.root
 
+        val quoteAdapter = QuoteAdapter { item ->
+            onItemClick(item)
+        }
+
         binding.quoteRv.adapter = quoteAdapter
         binding.quoteRefresh.setOnRefreshListener {
             binding.motionLayout.transitionToEnd()
@@ -44,7 +44,12 @@ class QuoteListFragment : Fragment() {
 
         lifecycleScope.launchWhenStarted {
             quoteViewModel.getQuote().flowOn(Dispatchers.IO).collect {
-                updateAdapter(it)
+                quoteAdapter.submitList(it) {
+                    if (binding.quoteRefresh.isRefreshing) {
+                        binding.quoteRefresh.isRefreshing = false
+                    }
+                    binding.motionLayout.transitionToStart()
+                }
             }
         }
 
@@ -66,14 +71,6 @@ class QuoteListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun updateAdapter(items: List<QuoteUi>) {
-        quoteAdapter.submitList(items)
-        if (binding.quoteRefresh.isRefreshing) {
-            binding.quoteRefresh.isRefreshing = false
-        }
-        binding.motionLayout.transitionToStart()
     }
 
     private fun onItemClick(quoteItemUi: QuoteItemUi) {

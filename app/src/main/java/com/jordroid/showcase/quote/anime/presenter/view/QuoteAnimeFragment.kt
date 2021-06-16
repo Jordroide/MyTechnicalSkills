@@ -17,8 +17,6 @@ class QuoteAnimeFragment : Fragment() {
 
     private val quoteAnimeViewModel: QuoteAnimeViewModel by viewModel()
 
-    private val quoteAnimeAdapter = QuoteAnimeAdapter()
-
     private var _binding: QuoteAnimeFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -28,6 +26,8 @@ class QuoteAnimeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = QuoteAnimeFragmentBinding.inflate(inflater, container, false)
+
+        val quoteAnimeAdapter = QuoteAnimeAdapter()
 
         binding.quoteAnimeRv.adapter = quoteAnimeAdapter
 
