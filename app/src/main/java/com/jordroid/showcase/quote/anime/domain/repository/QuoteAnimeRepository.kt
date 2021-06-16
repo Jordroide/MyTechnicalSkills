@@ -12,7 +12,7 @@ class QuoteAnimeRepository(
     private val quoteAnimeRoomDao: QuoteAnimeRoomDao,
 ) {
 
-    fun readAll(): Flow<List<QuoteAnimeEntity>> = quoteAnimeRoomDao.readAll().map { list ->
+    fun readAll(): Flow<List<QuoteAnimeEntity>> = quoteAnimeRoomDao.selectAll().map { list ->
         list.map {
             it.toEntity()
         }

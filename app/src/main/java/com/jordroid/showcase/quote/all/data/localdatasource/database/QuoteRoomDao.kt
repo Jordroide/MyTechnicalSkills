@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 interface QuoteRoomDao {
 
     @Query("SELECT * FROM quote_entity WHERE quote = :quote")
-    fun readByQuote(quote : String): QuoteRoom?
+    fun selectByQuote(quote : String): QuoteRoom?
 
     @Query("SELECT * FROM quote_entity")
-    fun readAll(): Flow<List<QuoteRoom>>
+    fun selectAll(): Flow<List<QuoteRoom>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(quoteRoom: QuoteRoom)

@@ -40,7 +40,7 @@ internal class QuoteRepositoryTest {
     @ExperimentalCoroutinesApi
     @Test
     fun readAll() = runBlockingTest {
-        every { quoteRoomDao.readAll() } returns flowOf(
+        every { quoteRoomDao.selectAll() } returns flowOf(
             listOf(
                 QuoteRoom("Dragon Ball Z", "San-Goku", "See you soon"),
                 QuoteRoom("Spider-Man", "Uncle Ben", "With great power comes great responsibility"),

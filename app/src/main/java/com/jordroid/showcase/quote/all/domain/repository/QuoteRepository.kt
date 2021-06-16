@@ -13,7 +13,7 @@ class QuoteRepository(
     private val quoteRoomDao: QuoteRoomDao
 ) {
 
-    fun readAll(): Flow<List<QuoteEntity>> = quoteRoomDao.readAll().map { list ->
+    fun readAll(): Flow<List<QuoteEntity>> = quoteRoomDao.selectAll().map { list ->
         list.map {
             it.toEntity()
         }
@@ -25,7 +25,7 @@ class QuoteRepository(
                 body()?.let {
                     val quoteDto: QuoteDto? = body()
                     quoteDto?.let { item ->
-                        quoteRoomDao.insert(quoteRoomDao.readByQuote(item.quote)?.let {
+                        quoteRoomDao.insert(quoteRoomDao.selectByQuote(item.quote)?.let {
                             item.toRoom().copy(id = it.id)
                         } ?: item.toRoom())
                     }
