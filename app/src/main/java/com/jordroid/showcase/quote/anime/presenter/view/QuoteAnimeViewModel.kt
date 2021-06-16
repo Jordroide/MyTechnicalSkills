@@ -24,8 +24,8 @@ class QuoteAnimeViewModel(
             quoteAnimeUseCase.fetch()
         }
     }
-
-    private fun QuoteAnimeEntity.toUi() = QuoteAnimeItem(
-        animeName = animeName
-    )
 }
+
+private fun QuoteAnimeEntity.toUi() = QuoteAnimeItem(
+    animeName = animeName
+)

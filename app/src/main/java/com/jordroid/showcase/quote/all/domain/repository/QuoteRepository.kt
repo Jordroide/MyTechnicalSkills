@@ -33,16 +33,16 @@ class QuoteRepository(
             }
         }
     }
-
-    private fun QuoteDto.toRoom() = QuoteRoom(
-        anime = anime,
-        character = character,
-        quote = quote
-    )
-
-    private fun QuoteRoom.toEntity() = QuoteEntity(
-        anime = anime,
-        character = character,
-        quote = quote
-    )
 }
+
+private fun QuoteDto.toRoom() = QuoteRoom(
+    anime = anime,
+    character = character,
+    quote = quote
+)
+
+private fun QuoteRoom.toEntity() = QuoteEntity(
+    anime = anime,
+    character = character,
+    quote = quote
+)

@@ -2,6 +2,7 @@ package com.jordroid.showcase.quote.all.presenter.view.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -28,7 +29,7 @@ private val diffItemUtils = object : DiffUtil.ItemCallback<QuoteUi>() {
 }
 
 class QuoteAdapter(
-    private val onItemClick: (quoteUi: QuoteItemUi) -> Unit,
+    private val onItemClick: (quoteUi: QuoteItemUi, view: View) -> Unit,
 ) : ListAdapter<QuoteUi, RecyclerView.ViewHolder>(diffItemUtils) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -64,21 +65,21 @@ class QuoteAdapter(
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
             is QuoteItemUi -> 0
-            else -> 1
+            is QuoteHeaderUi -> 1
         }
     }
 }
 
 class QuoteViewHolder(
     private val binding: QuoteItemBinding,
-    onItemClick: (quoteUi: QuoteItemUi) -> Unit
+    onItemClick: (quoteUi: QuoteItemUi, view: View) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private lateinit var ui: QuoteItemUi
 
     init {
         binding.root.setOnClickListener {
-            onItemClick(ui)
+            onItemClick(ui, itemView)
         }
     }
 

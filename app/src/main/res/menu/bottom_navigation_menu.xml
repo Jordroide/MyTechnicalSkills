@@ -7,6 +7,6 @@
 
     <item
         android:id="@+id/navigation_fragment_anime"
-        android:icon="@drawable/ic_quote_anime"
+        android:icon="@drawable/ic_anime_icon"
         android:title="@string/navigation_anime_list" />
 </menu>
