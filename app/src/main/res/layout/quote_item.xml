@@ -5,7 +5,7 @@
 
         <variable
             name="quoteItem"
-            type="com.jordroid.sampleinjection.quote.presenter.model.QuoteItem" />
+            type="com.jordroid.showcase.quote.presenter.model.QuoteItem" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,22 +13,25 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginStart="@dimen/margin_smallest"
+        android:layout_marginTop="@dimen/margin_smallest"
+        android:layout_marginEnd="@dimen/margin_smallest"
+        android:layout_marginBottom="@dimen/margin_smallest"
         app:cardCornerRadius="8dp"
-        app:cardElevation="0dp">
+        app:cardElevation="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="8dp">
+            android:padding="@dimen/padding_small">
 
             <TextView
                 android:id="@+id/quoteItemTitle"
                 style="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{quoteItem.content}"
+                android:text="@{quoteItem.anime}"
+                android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@id/quoteItemDesc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,15 +40,33 @@
 
             <TextView
                 android:id="@+id/quoteItemDesc"
-                style="@style/TextAppearance.MaterialComponents.Caption"
+                style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{quoteItem.category}"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@{quoteItem.character}"
+                android:textColor="@color/header"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/quoteItemTitle"
-                tools:text="Nerdy" />
+                tools:text="Sweet beer" />
+
+            <TextView
+                android:id="@+id/quoteItemQuote"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@drawable/background_quote"
+                android:justificationMode="inter_word"
+                android:padding="@dimen/padding_small"
+                android:text="@{@string/quoted_string(quoteItem.quote)}"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quoteItemDesc"
+                tools:text="A great power come with beer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
