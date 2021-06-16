@@ -1,11 +1,14 @@
 package com.jordroid.showcase.quote.presenter.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.jordroid.showcase.R
-import com.jordroid.showcase.databinding.QuoteActivityBinding
+import com.jordroid.showcase.databinding.QuoteListFragmentBinding
 import com.jordroid.showcase.quote.presenter.model.QuoteGenericItem
 import com.jordroid.showcase.quote.presenter.model.QuoteItem
 import com.jordroid.showcase.quote.presenter.view.adapter.QuoteAdapter
@@ -14,7 +17,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOn
 import org.koin.android.ext.android.inject
 
-class QuoteListActivity : AppCompatActivity() {
+class QuoteListFragment : Fragment() {
 
     private val quoteViewModel: QuoteViewModel by inject()
 
@@ -22,12 +25,16 @@ class QuoteListActivity : AppCompatActivity() {
         onItemClick(item)
     }
 
-    private lateinit var binding: QuoteActivityBinding
+    private var _binding: QuoteListFragmentBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = QuoteActivityBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = QuoteListFragmentBinding.inflate(layoutInflater)
+        val rootView = binding.root
 
         binding.quoteRv.adapter = quoteAdapter
         binding.quoteRefresh.setOnRefreshListener {
@@ -44,13 +51,21 @@ class QuoteListActivity : AppCompatActivity() {
         lifecycleScope.launchWhenStarted {
             quoteViewModel.quoteStatistic.collect {
                 binding.chipNumberItem.text = getString(R.string.number_quote_item, it.numberItem)
-                binding.chipNumberAnime.text = getString(R.string.number_quote_anime, it.numberDistinctAnime)
+                binding.chipNumberAnime.text =
+                    getString(R.string.number_quote_anime, it.numberDistinctAnime)
             }
         }
 
         binding.searchTextLayout.doOnTextChanged { input, _, _, _ ->
             quoteViewModel.searchWith(input.toString())
         }
+
+        return rootView
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun updateAdapter(items: List<QuoteGenericItem>) {

@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Showcase">
 
         <activity
-            android:name="com.jordroid.showcase.quote.presenter.view.QuoteListActivity"
+            android:name="com.jordroid.showcase.quote.presenter.view.QuoteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
