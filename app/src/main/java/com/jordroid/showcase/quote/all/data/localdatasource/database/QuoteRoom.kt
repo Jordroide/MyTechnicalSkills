@@ -18,6 +18,6 @@ data class QuoteRoom(
     @ColumnInfo(name = "quote")
     val quote: String,
 
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     var id: Long? = null
 )
