@@ -37,6 +37,7 @@ class QuoteAnimeFragment : Fragment() {
             }
         }
 
+        // TODO add swype refresh
         quoteAnimeViewModel.fetchAnimeData()
 
         return binding.root
