@@ -11,7 +11,6 @@ import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
@@ -20,7 +19,7 @@ class QuoteViewModel(
 ) : ViewModel() {
 
     private val _quoteStatistic = MutableSharedFlow<QuoteStatistic>()
-    val quoteStatistic: SharedFlow<QuoteStatistic> = _quoteStatistic
+    val quoteStatistic: Flow<QuoteStatistic> = _quoteStatistic
 
     fun getQuote(): Flow<List<QuoteUi>> {
         return quoteUseCase.readAll().map { list ->
@@ -40,23 +39,23 @@ class QuoteViewModel(
             quoteUseCase.fetch()
         }
     }
+}
 
-    private fun QuoteEntity.toUi() = QuoteItemUi(
-        anime = anime,
-        character = character,
-        quote = quote
-    )
+private fun QuoteEntity.toUi() = QuoteItemUi(
+    anime = anime,
+    character = character,
+    quote = quote
+)
 
-    private fun List<QuoteEntity>.toUi(): List<QuoteUi> {
-        val result = mutableListOf<QuoteUi>()
-        map {
-            it.toUi()
-        }.groupBy {
-            it.label
-        }.forEach { (anime, items) ->
-            result.add(QuoteHeaderUi(anime))
-            result.addAll(items)
-        }
-        return result
+private fun List<QuoteEntity>.toUi(): List<QuoteUi> {
+    val result = mutableListOf<QuoteUi>()
+    asSequence().map {
+        it.toUi()
+    }.groupBy {
+        it.label
+    }.toList().forEach { (anime, items) ->
+        result.add(QuoteHeaderUi(anime))
+        result.addAll(items)
     }
+    return result
 }

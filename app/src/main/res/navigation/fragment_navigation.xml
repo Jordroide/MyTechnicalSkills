@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/navigation_fragment_all"
         android:name="com.jordroid.showcase.quote.all.presenter.view.QuoteListFragment"
-        android:label="All"
+        android:label="@string/navigation_quote_all"
         tools:layout="@layout/quote_list_fragment" />
 
     <fragment
         android:id="@+id/navigation_fragment_anime"
         android:name="com.jordroid.showcase.quote.anime.presenter.view.QuoteAnimeFragment"
-        android:label="All anime available"
+        android:label="@string/navigation_anime_list"
         tools:layout="@layout/quote_anime_fragment" />
 
 </navigation>

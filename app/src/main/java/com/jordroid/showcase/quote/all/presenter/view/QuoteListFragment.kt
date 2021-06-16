@@ -1,6 +1,7 @@
 package com.jordroid.showcase.quote.all.presenter.view
 
 import android.os.Bundle
+import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.jordroid.showcase.R
 import com.jordroid.showcase.databinding.QuoteListFragmentBinding
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi
 import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
 import com.jordroid.showcase.quote.all.presenter.view.adapter.QuoteAdapter
 import kotlinx.coroutines.Dispatchers
@@ -32,8 +32,8 @@ class QuoteListFragment : Fragment() {
         _binding = QuoteListFragmentBinding.inflate(layoutInflater, container, false)
         val rootView = binding.root
 
-        val quoteAdapter = QuoteAdapter { item ->
-            onItemClick(item)
+        val quoteAdapter = QuoteAdapter { item, view ->
+            onItemClick(item, view)
         }
 
         binding.quoteRv.adapter = quoteAdapter
@@ -47,6 +47,7 @@ class QuoteListFragment : Fragment() {
                 quoteAdapter.submitList(it) {
                     if (binding.quoteRefresh.isRefreshing) {
                         binding.quoteRefresh.isRefreshing = false
+                        view?.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
                     }
                     binding.motionLayout.transitionToStart()
                 }
@@ -73,7 +74,8 @@ class QuoteListFragment : Fragment() {
         _binding = null
     }
 
-    private fun onItemClick(quoteItemUi: QuoteItemUi) {
+    private fun onItemClick(quoteItemUi: QuoteItemUi, view: View?) {
+        view?.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
         // TODO implement
     }
 }

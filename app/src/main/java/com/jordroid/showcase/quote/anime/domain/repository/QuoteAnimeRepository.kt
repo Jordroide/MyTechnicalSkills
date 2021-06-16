@@ -30,14 +30,14 @@ class QuoteAnimeRepository(
             }
         }
     }
-
-    private fun List<String>.toRoom(): List<QuoteAnimeRoom> {
-        return map { animeName ->
-            QuoteAnimeRoom(animeName)
-        }
-    }
-
-    private fun QuoteAnimeRoom.toEntity() = QuoteAnimeEntity(
-        animeName = animeName
-    )
 }
+
+private fun List<String>.toRoom(): List<QuoteAnimeRoom> {
+    return map { animeName ->
+        QuoteAnimeRoom(animeName)
+    }
+}
+
+private fun QuoteAnimeRoom.toEntity() = QuoteAnimeEntity(
+    animeName = animeName
+)
