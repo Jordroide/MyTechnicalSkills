@@ -16,7 +16,9 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/SearchShape"
+        app:startIconDrawable="@drawable/ic_anime_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/searchTextLayout"

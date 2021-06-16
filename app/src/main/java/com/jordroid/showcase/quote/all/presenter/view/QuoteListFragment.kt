@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jordroid.showcase.R
 import com.jordroid.showcase.databinding.QuoteListFragmentBinding
 import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
