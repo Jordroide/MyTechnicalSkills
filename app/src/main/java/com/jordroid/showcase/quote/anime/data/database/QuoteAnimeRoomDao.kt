@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface QuoteAnimeRoomDao {
 
     @Query("SELECT * FROM quote_anime_entity")
-    fun readAll(): Flow<List<QuoteAnimeRoom>>
+    fun selectAll(): Flow<List<QuoteAnimeRoom>>
 
     @Query("SELECT * FROM quote_anime_entity WHERE anime_name= :animeName")
     fun findByAnimeName(animeName: String): QuoteAnimeRoom?
