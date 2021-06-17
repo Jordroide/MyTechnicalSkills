@@ -16,7 +16,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import kotlin.math.sin
 
 @Suppress("unused")
 class QuoteApplication : Application() {
