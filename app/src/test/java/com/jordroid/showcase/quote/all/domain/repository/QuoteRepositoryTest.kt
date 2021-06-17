@@ -2,6 +2,7 @@ package com.jordroid.showcase.quote.all.domain.repository
 
 import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoom
 import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoomDao
+import com.jordroid.showcase.quote.all.data.localdatasource.remote.QuoteApi
 import io.mockk.MockKAnnotations
 import io.mockk.clearAllMocks
 import io.mockk.every
@@ -24,12 +25,12 @@ internal class QuoteRepositoryTest {
     private lateinit var quoteRoomDao: QuoteRoomDao
 
     @RelaxedMockK
-    private lateinit var retrofit: Retrofit
+    private lateinit var quoteApi: QuoteApi
 
     @BeforeEach
     fun before() {
         MockKAnnotations.init(this)
-        repository = QuoteRepository(quoteRoomDao, retrofit)
+        repository = QuoteRepository(quoteApi, quoteRoomDao)
     }
 
     @AfterEach
@@ -57,6 +58,5 @@ internal class QuoteRepositoryTest {
             assertEquals("With great power comes great responsibility", it[1].quote)
             assertEquals("Hunter X Hunter", it[2].anime)
         }
-
     }
 }
