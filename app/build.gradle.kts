@@ -9,6 +9,7 @@ val versionMinor = 0
 val versionPatch = 3
 
 android {
+
     compileSdkVersion = "android-S"
     buildToolsVersion = "30.0.3"
 
@@ -28,14 +29,21 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            versionNameSuffix = "-debug"
+            minifyEnabled(true)
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
         getByName("release") {
-            minifyEnabled(false)
+            minifyEnabled(true)
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 
     compileOptions {
-        sourceCompatibility =  JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 

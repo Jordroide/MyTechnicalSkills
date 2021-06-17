@@ -1,7 +1,9 @@
 package com.jordroid.showcase.quote.all.data.localdatasource.remote
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class QuoteDto(
     @SerializedName("anime")
     val anime: String,
