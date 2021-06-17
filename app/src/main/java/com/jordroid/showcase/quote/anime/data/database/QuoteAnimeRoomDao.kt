@@ -15,6 +15,9 @@ interface QuoteAnimeRoomDao {
     @Query("SELECT * FROM quote_anime_entity WHERE anime_name= :animeName")
     fun findByAnimeName(animeName: String): QuoteAnimeRoom?
 
+    @Query("SELECT COUNT(*) FROM quote_anime_entity")
+    fun countElement() : Int
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(quoteAnimeRoomList: List<QuoteAnimeRoom>)
 

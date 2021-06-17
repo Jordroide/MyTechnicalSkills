@@ -1,5 +1,6 @@
 package com.jordroid.showcase.quote.anime.domain.repository
 
+import android.util.Log
 import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoom
 import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoomDao
 import com.jordroid.showcase.quote.anime.data.remote.QuoteAnimeApi
@@ -19,12 +20,14 @@ class QuoteAnimeRepository(
     }
 
     suspend fun fetchAnimeData() {
-        with(quoteAnimeApi.getAllAnime()) {
-            if (isSuccessful) {
-                body()?.let {
-                    val quoteAnimeDto: List<String>? = body()
-                    quoteAnimeDto?.let { list ->
-                        quoteAnimeRoomDao.insertAll(list.toRoom())
+        if (quoteAnimeRoomDao.countElement() == 0) {
+            with(quoteAnimeApi.getAllAnime()) {
+                if (isSuccessful) {
+                    body()?.let {
+                        val quoteAnimeDto: List<String>? = body()
+                        quoteAnimeDto?.let { list ->
+                            quoteAnimeRoomDao.insertAll(list.toRoom())
+                        }
                     }
                 }
             }
