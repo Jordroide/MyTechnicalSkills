@@ -15,12 +15,14 @@
         android:theme="@style/Theme.Showcase">
 
         <activity
-            android:name="com.jordroid.showcase.quote.presenter.view.QuoteListActivity"
+            android:name="com.jordroid.showcase.quote.global.presenter.view.QuoteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
     </application>
 

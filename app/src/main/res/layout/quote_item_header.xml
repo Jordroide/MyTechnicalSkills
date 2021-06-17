@@ -7,7 +7,7 @@
 
         <variable
             name="quoteItemHeader"
-            type="com.jordroid.showcase.quote.presenter.model.QuoteItemHeader" />
+            type="com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteHeaderUi" />
     </data>
 
     <androidx.cardview.widget.CardView

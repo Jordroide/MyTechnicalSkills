@@ -5,7 +5,7 @@
 
         <variable
             name="quoteItem"
-            type="com.jordroid.showcase.quote.presenter.model.QuoteItem" />
+            type="com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,7 +30,7 @@
                 style="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{quoteItem.anime}"
+                android:text="@{quoteItem.label}"
                 android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@id/quoteItemDesc"
                 app:layout_constraintEnd_toEndOf="parent"

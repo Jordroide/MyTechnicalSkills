@@ -6,7 +6,7 @@ plugins {
 
 val versionMajor = 1
 val versionMinor = 0
-val versionPatch = 0
+val versionPatch = 1
 
 android {
     compileSdkVersion = "android-S"
@@ -58,6 +58,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
     implementation("androidx.room:room-ktx:2.3.0")
     implementation("androidx.room:room-runtime:2.3.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     kapt("androidx.room:room-compiler:2.3.0")
     /** Kotlin dependencies */
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
