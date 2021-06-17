@@ -40,15 +40,12 @@ internal class QuoteRepositoryTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun readAll() = runBlockingTest {
+    fun `check list is correctly converted from room to entity`() = runBlockingTest {
         every { quoteRoomDao.selectAll() } returns flowOf(
             listOf(
                 QuoteRoom("Dragon Ball Z", "San-Goku", "See you soon"),
                 QuoteRoom("Spider-Man", "Uncle Ben", "With great power comes great responsibility"),
-                QuoteRoom(
-                    "Hunter X Hunter",
-                    "Kurapika",
-                    "The only principle is that there is no principles"
+                QuoteRoom("Hunter X Hunter", "Kurapika", "The only principle is that there is no principles"
                 ),
             )
         )
