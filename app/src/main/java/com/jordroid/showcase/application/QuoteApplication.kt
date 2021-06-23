@@ -3,10 +3,10 @@ package com.jordroid.showcase.application
 import android.app.Application
 import com.jordroid.showcase.application.database.QuoteDatabase
 import com.jordroid.showcase.application.remote.RetrofitClient
-import com.jordroid.showcase.quote.all.data.localdatasource.remote.QuoteApi
-import com.jordroid.showcase.quote.all.domain.repository.QuoteRepository
-import com.jordroid.showcase.quote.all.domain.usecase.QuoteUseCase
-import com.jordroid.showcase.quote.all.presenter.view.QuoteViewModel
+import com.jordroid.showcase.quote.random.data.localdatasource.remote.QuoteApi
+import com.jordroid.showcase.quote.random.domain.repository.QuoteRepository
+import com.jordroid.showcase.quote.random.domain.usecase.QuoteUseCase
+import com.jordroid.showcase.quote.random.presenter.view.QuoteViewModel
 import com.jordroid.showcase.quote.anime.data.remote.QuoteAnimeApi
 import com.jordroid.showcase.quote.anime.domain.repository.QuoteAnimeRepository
 import com.jordroid.showcase.quote.anime.domain.usecase.QuoteAnimeUseCase

@@ -1,4 +1,4 @@
-package com.jordroid.showcase.quote.all.data.localdatasource.database
+package com.jordroid.showcase.quote.random.data.localdatasource.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

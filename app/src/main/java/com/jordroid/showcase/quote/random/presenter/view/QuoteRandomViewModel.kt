@@ -1,13 +1,13 @@
-package com.jordroid.showcase.quote.all.presenter.view
+package com.jordroid.showcase.quote.random.presenter.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jordroid.showcase.quote.all.domain.model.QuoteEntity
-import com.jordroid.showcase.quote.all.domain.usecase.QuoteUseCase
-import com.jordroid.showcase.quote.all.presenter.model.QuoteStatistic
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteHeaderUi
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
+import com.jordroid.showcase.quote.random.domain.model.QuoteEntity
+import com.jordroid.showcase.quote.random.domain.usecase.QuoteUseCase
+import com.jordroid.showcase.quote.random.presenter.model.QuoteStatistic
+import com.jordroid.showcase.quote.random.presenter.model.QuoteUi
+import com.jordroid.showcase.quote.random.presenter.model.QuoteUi.QuoteHeaderUi
+import com.jordroid.showcase.quote.random.presenter.model.QuoteUi.QuoteItemUi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow

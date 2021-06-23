@@ -1,7 +1,7 @@
-package com.jordroid.showcase.quote.all.domain.usecase
+package com.jordroid.showcase.quote.random.domain.usecase
 
-import com.jordroid.showcase.quote.all.domain.model.QuoteEntity
-import com.jordroid.showcase.quote.all.domain.repository.QuoteRepository
+import com.jordroid.showcase.quote.random.domain.model.QuoteEntity
+import com.jordroid.showcase.quote.random.domain.repository.QuoteRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine

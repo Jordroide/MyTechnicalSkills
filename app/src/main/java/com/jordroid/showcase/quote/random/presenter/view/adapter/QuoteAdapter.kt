@@ -1,4 +1,4 @@
-package com.jordroid.showcase.quote.all.presenter.view.adapter
+package com.jordroid.showcase.quote.random.presenter.view.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,11 +9,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jordroid.showcase.databinding.QuoteItemBinding
 import com.jordroid.showcase.databinding.QuoteItemHeaderBinding
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteHeaderUi
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
-import com.jordroid.showcase.quote.all.presenter.view.adapter.QuoteViewType.*
-import java.lang.IllegalStateException
+import com.jordroid.showcase.quote.random.presenter.model.QuoteUi
+import com.jordroid.showcase.quote.random.presenter.model.QuoteUi.QuoteHeaderUi
+import com.jordroid.showcase.quote.random.presenter.model.QuoteUi.QuoteItemUi
+import com.jordroid.showcase.quote.random.presenter.view.adapter.QuoteViewType.*
 import java.lang.RuntimeException
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<QuoteUi>() {
