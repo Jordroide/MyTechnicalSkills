@@ -12,6 +12,9 @@ import com.jordroid.showcase.databinding.QuoteItemHeaderBinding
 import com.jordroid.showcase.quote.all.presenter.model.QuoteUi
 import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteHeaderUi
 import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
+import com.jordroid.showcase.quote.all.presenter.view.adapter.QuoteViewType.*
+import java.lang.IllegalStateException
+import java.lang.RuntimeException
 
 private val diffItemUtils = object : DiffUtil.ItemCallback<QuoteUi>() {
 
@@ -34,7 +37,7 @@ class QuoteAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         when (viewType) {
-            0 -> {
+            ROW.viewType -> {
                 QuoteViewHolder(
                     QuoteItemBinding.inflate(
                         LayoutInflater.from(parent.context),
@@ -43,7 +46,7 @@ class QuoteAdapter(
                     ), onItemClick
                 )
             }
-            else -> {
+            HEADER.viewType -> {
                 QuoteHeaderViewHolder(
                     QuoteItemHeaderBinding.inflate(
                         LayoutInflater.from(parent.context),
@@ -52,20 +55,20 @@ class QuoteAdapter(
                     )
                 )
             }
+            else -> throw RuntimeException("Wrong view type received $viewType")
         }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder.itemViewType) {
-            0 -> (holder as QuoteViewHolder).bind(getItem(position) as QuoteItemUi)
-            else -> (holder as QuoteHeaderViewHolder).bind(
-                getItem(position) as QuoteHeaderUi
-            )
+            ROW.viewType -> (holder as QuoteViewHolder).bind(getItem(position) as QuoteItemUi)
+            HEADER.viewType -> (holder as QuoteHeaderViewHolder).bind(getItem(position) as QuoteHeaderUi)
+            else -> throw RuntimeException("Wrong view type received ${holder.itemView}")
         }
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
-            is QuoteItemUi -> 0
-            is QuoteHeaderUi -> 1
+            is QuoteItemUi -> ROW.viewType
+            is QuoteHeaderUi -> HEADER.viewType
         }
     }
 }
@@ -99,4 +102,9 @@ class QuoteHeaderViewHolder(
         header = quoteItemHeader
         binding.quoteItemHeader = quoteItemHeader
     }
+}
+
+enum class QuoteViewType(val viewType: Int) {
+    ROW(0),
+    HEADER(1)
 }
