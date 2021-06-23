@@ -1,8 +1,9 @@
 package com.jordroid.showcase.quote.all.domain.repository
 
-import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoom
-import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoomDao
-import com.jordroid.showcase.quote.all.data.localdatasource.remote.QuoteApi
+import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoom
+import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoomDao
+import com.jordroid.showcase.quote.random.data.localdatasource.remote.QuoteApi
+import com.jordroid.showcase.quote.random.domain.repository.QuoteRepository
 import io.mockk.MockKAnnotations
 import io.mockk.clearAllMocks
 import io.mockk.every
@@ -15,7 +16,6 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import retrofit2.Retrofit
 
 internal class QuoteRepositoryTest {
 

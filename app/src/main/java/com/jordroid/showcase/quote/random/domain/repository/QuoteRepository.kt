@@ -1,10 +1,10 @@
-package com.jordroid.showcase.quote.all.domain.repository
+package com.jordroid.showcase.quote.random.domain.repository
 
-import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoom
-import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoomDao
-import com.jordroid.showcase.quote.all.data.localdatasource.remote.QuoteApi
-import com.jordroid.showcase.quote.all.data.localdatasource.remote.QuoteDto
-import com.jordroid.showcase.quote.all.domain.model.QuoteEntity
+import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoom
+import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoomDao
+import com.jordroid.showcase.quote.random.data.localdatasource.remote.QuoteApi
+import com.jordroid.showcase.quote.random.data.localdatasource.remote.QuoteDto
+import com.jordroid.showcase.quote.random.domain.model.QuoteEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

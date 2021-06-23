@@ -1,4 +1,4 @@
-package com.jordroid.showcase.quote.all.presenter.model
+package com.jordroid.showcase.quote.random.presenter.model
 
 data class QuoteStatistic(
     val numberItem: Int,
