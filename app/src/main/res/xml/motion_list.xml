@@ -13,9 +13,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="1.0"
-            android:translationY="0dp"
             android:scaleX="1.0"
-            android:scaleY="1.0" />
+            android:scaleY="1.0"
+            android:translationY="0dp" />
+
+        <Constraint
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="-8dp"
+            android:translationY="-8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -30,5 +39,14 @@
             android:visibility="visible"
             motion:pathMotionArc="startVertical"
             motion:transitionEasing="cubic(0,1,1,1)" />
+
+        <Constraint
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="128dp"
+            android:translationY="-8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
     </ConstraintSet>
 </MotionScene>
