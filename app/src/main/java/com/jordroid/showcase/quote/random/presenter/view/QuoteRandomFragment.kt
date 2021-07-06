@@ -38,18 +38,15 @@ class QuoteRandomFragment : Fragment() {
         }
 
         binding.quoteRv.adapter = quoteAdapter
-        binding.quoteRefresh.setOnRefreshListener {
-            binding.motionLayout.transitionToEnd()
+        binding.fab.setOnClickListener {
             quoteViewModel.fetchData()
+            binding.motionLayout.transitionToEnd()
         }
 
         lifecycleScope.launchWhenStarted {
             quoteViewModel.getQuote().flowOn(Dispatchers.IO).collect {
                 quoteAdapter.submitList(it) {
-                    if (binding.quoteRefresh.isRefreshing) {
-                        binding.quoteRefresh.isRefreshing = false
                         view?.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-                    }
                     binding.motionLayout.transitionToStart()
                 }
             }

@@ -6,4 +6,5 @@
     <string name="number_quote_anime" translatable="false">Anime : %1$d</string>
     <string name="navigation_quote_all">Quote</string>
     <string name="navigation_anime_list">Anime</string>
+    <string name="string_add_content">Add</string>
 </resources>
