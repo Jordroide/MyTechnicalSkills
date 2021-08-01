@@ -1,4 +1,4 @@
-package com.jordroid.showcase.quote.all.presenter.view
+package com.jordroid.showcase.quote.random.presenter.view
 
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
@@ -9,17 +9,16 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jordroid.showcase.R
 import com.jordroid.showcase.databinding.QuoteListFragmentBinding
-import com.jordroid.showcase.quote.all.presenter.model.QuoteUi.QuoteItemUi
-import com.jordroid.showcase.quote.all.presenter.view.adapter.QuoteAdapter
+import com.jordroid.showcase.quote.random.presenter.model.QuoteUi.QuoteItemUi
+import com.jordroid.showcase.quote.random.presenter.view.adapter.QuoteAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOn
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class QuoteListFragment : Fragment() {
+class QuoteRandomFragment : Fragment() {
 
     private val quoteViewModel: QuoteViewModel by viewModel()
 
@@ -39,18 +38,15 @@ class QuoteListFragment : Fragment() {
         }
 
         binding.quoteRv.adapter = quoteAdapter
-        binding.quoteRefresh.setOnRefreshListener {
-            binding.motionLayout.transitionToEnd()
+        binding.fab.setOnClickListener {
             quoteViewModel.fetchData()
+            binding.motionLayout.transitionToEnd()
         }
 
         lifecycleScope.launchWhenStarted {
             quoteViewModel.getQuote().flowOn(Dispatchers.IO).collect {
                 quoteAdapter.submitList(it) {
-                    if (binding.quoteRefresh.isRefreshing) {
-                        binding.quoteRefresh.isRefreshing = false
                         view?.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-                    }
                     binding.motionLayout.transitionToStart()
                 }
             }

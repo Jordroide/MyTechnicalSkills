@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoom
-import com.jordroid.showcase.quote.all.data.localdatasource.database.QuoteRoomDao
+import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoom
+import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoomDao
 import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoom
 import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoomDao
 

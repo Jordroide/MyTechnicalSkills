@@ -1,7 +1,8 @@
 package com.jordroid.showcase.quote.all.domain.usecase
 
-import com.jordroid.showcase.quote.all.domain.model.QuoteEntity
-import com.jordroid.showcase.quote.all.domain.repository.QuoteRepository
+import com.jordroid.showcase.quote.random.domain.model.QuoteEntity
+import com.jordroid.showcase.quote.random.domain.repository.QuoteRepository
+import com.jordroid.showcase.quote.random.domain.usecase.QuoteUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK

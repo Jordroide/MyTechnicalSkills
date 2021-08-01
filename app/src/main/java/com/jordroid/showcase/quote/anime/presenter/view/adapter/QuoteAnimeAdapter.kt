@@ -1,3 +1,4 @@
+
 package com.jordroid.showcase.quote.anime.presenter.view.adapter
 
 import android.view.LayoutInflater

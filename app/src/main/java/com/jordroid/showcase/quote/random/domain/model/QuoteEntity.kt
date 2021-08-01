@@ -1,4 +1,4 @@
-package com.jordroid.showcase.quote.all.domain.model
+package com.jordroid.showcase.quote.random.domain.model
 
 data class QuoteEntity(
     val anime: String,

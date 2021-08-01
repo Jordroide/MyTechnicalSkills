@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_fragment_all"
-        android:name="com.jordroid.showcase.quote.all.presenter.view.QuoteListFragment"
+        android:name="com.jordroid.showcase.quote.random.presenter.view.QuoteRandomFragment"
         android:label="@string/navigation_quote_all"
         tools:layout="@layout/quote_list_fragment" />
 

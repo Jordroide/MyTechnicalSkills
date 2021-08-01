@@ -29,6 +29,7 @@ class QuoteActivity : AppCompatActivity() {
         )
 
         setupActionBarWithNavController(navController, appBarConfiguration)
+
         bottomNavigationView.setupWithNavController(navController)
     }
 }

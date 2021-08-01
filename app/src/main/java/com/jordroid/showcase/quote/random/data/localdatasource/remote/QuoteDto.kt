@@ -1,4 +1,4 @@
-package com.jordroid.showcase.quote.all.data.localdatasource.remote
+package com.jordroid.showcase.quote.random.data.localdatasource.remote
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
