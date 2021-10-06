@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Showcase">
+        android:theme="@style/Theme.Showcase.Splash">
 
         <activity
             android:name="com.jordroid.showcase.quote.global.presenter.view.QuoteActivity"
