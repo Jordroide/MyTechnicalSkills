@@ -14,9 +14,9 @@ This project is a showcase of my technical skills on Android. It reflects what I
 
 ## Environment
 
-* Android Studio 4.2.1
+* Android Studio Artic Fox | 2020.3.1 | Patch 2
 * Gradle 6.7.1
-* Kotlin 1.5
+* Kotlin 1.5.30
 * Android 5.0 - 12.0
 
 ## Architecture
