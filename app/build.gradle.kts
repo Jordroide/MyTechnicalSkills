@@ -60,7 +60,6 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
     implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     /** Google dependencies */
     implementation("com.google.android.material:material:1.4.0")
     /** JetPack dependencies */
