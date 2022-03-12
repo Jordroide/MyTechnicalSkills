@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Jordroid technical skill</string>
+    <string name="quoted_string" translatable="false">&#8223;%1$s&#8221;</string>
+    <string name="number_quote_item">Quote : %1$d</string>
+    <string name="number_quote_anime">Anime : %1$d</string>
+    <string name="fragment_quote_title">Random quotes</string>
+    <string name="fragment_list_title">All anime available</string>
+    <string name="fragment_gallery_title">Endless dogs gallery</string>
+    <string name="navigation_quote_all">Quote</string>
+    <string name="navigation_anime_list">Anime</string>
+    <string name="navigation_gallery_list">Gallery</string>
+</resources>

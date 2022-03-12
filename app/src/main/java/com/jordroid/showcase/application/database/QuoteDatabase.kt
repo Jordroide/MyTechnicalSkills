@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoom
-import com.jordroid.showcase.quote.random.data.localdatasource.database.QuoteRoomDao
-import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoom
-import com.jordroid.showcase.quote.anime.data.database.QuoteAnimeRoomDao
+import com.jordroid.showcase.quotes.data.source.local.QuoteRoom
+import com.jordroid.showcase.quotes.data.source.local.QuoteRoomDao
+import com.jordroid.showcase.browsing.data.source.local.QuoteAnimeRoom
+import com.jordroid.showcase.browsing.data.source.local.QuoteAnimeRoomDao
 
 @Database(
     entities = [

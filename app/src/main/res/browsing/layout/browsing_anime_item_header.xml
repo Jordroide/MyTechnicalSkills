@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="animeItemHeader"
+            type="com.jordroid.showcase.browsing.presenter.model.AnimeUi.AnimeHeaderUi" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <ImageView
+            android:id="@+id/animeItemHeaderIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/rounded_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/animeItemHeaderIconTitle"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{animeItemHeader.label}"
+            android:textColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/animeItemHeaderIcon"
+            app:layout_constraintEnd_toEndOf="@+id/animeItemHeaderIcon"
+            app:layout_constraintStart_toStartOf="@+id/animeItemHeaderIcon"
+            app:layout_constraintTop_toTopOf="@+id/animeItemHeaderIcon"
+            tools:text="D" />
+
+        <TextView
+            android:id="@+id/animeItemHeaderTitle"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_small"
+            android:text="@{@string/anime_amount_header(animeItemHeader.amount)}"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/animeItemHeaderIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/animeItemHeaderIcon"
+            app:layout_constraintTop_toTopOf="@+id/animeItemHeaderIcon"
+            tools:text="5 results" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

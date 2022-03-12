@@ -1,0 +1,4 @@
+<resources>
+    <string name="search_hint">Search an element</string>
+    <string name="quote_add_new">New quote</string>
+</resources>
