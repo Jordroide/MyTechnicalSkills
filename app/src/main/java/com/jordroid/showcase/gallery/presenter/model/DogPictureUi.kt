@@ -1,5 +1,5 @@
 package com.jordroid.showcase.gallery.presenter.model
 
-data class DoggoUi(
+data class DogPictureUi(
     val url: String
 )

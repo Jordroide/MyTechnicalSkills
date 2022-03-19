@@ -32,7 +32,10 @@ class GalleryFragment : Fragment() {
 
         val adapter = GalleryDoggoAdapter()
 
-        binding.galleryRv.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+        binding.galleryRv.layoutManager =
+            StaggeredGridLayoutManager(2, RecyclerView.VERTICAL).also {
+                it.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
+            }
         binding.galleryRv.adapter = adapter
 
         lifecycleScope.launchWhenStarted {

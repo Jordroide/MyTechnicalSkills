@@ -11,8 +11,8 @@
     <item
         android:left="1dp">
         <shape android:shape="rectangle">
-            <corners android:topRightRadius="2dp"
-                android:bottomRightRadius="2dp"/>
+            <corners android:topRightRadius="4dp"
+                android:bottomRightRadius="4dp"/>
             <solid android:color="@color/quoteContent" />
         </shape>
     </item>

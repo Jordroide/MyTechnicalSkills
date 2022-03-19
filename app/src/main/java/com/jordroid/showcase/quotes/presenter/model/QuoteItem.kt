@@ -5,7 +5,8 @@ package com.jordroid.showcase.quotes.presenter.model
  */
 data class QuoteStatisticUi(
     val numberItem: Int,
-    val numberDistinctAnime: Int
+    val numberDistinctAnime: Int,
+    val lastUpdateTime : String
 )
 
 /**

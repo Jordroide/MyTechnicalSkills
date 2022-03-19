@@ -4,7 +4,7 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class DoggoDataSource(
+data class DogPictureDataSource(
 
     @SerializedName("url")
     val wikipediaUrl : String

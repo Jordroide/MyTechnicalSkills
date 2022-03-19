@@ -12,43 +12,31 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/quoteItemHeaderIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_margin="4dp"
-            android:background="@drawable/rounded_background"
+            android:src="@drawable/ic_baseline_keyboard_double_arrow_right_24"
+            app:layout_constraintBottom_toBottomOf="@+id/quoteItemHeaderTitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/quoteItemHeaderIconTitle"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{quoteItemHeader.animeName.substring(0,2)}"
-            android:textColor="?attr/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="@+id/quoteItemHeaderIcon"
-            app:layout_constraintEnd_toEndOf="@+id/quoteItemHeaderIcon"
-            app:layout_constraintStart_toStartOf="@+id/quoteItemHeaderIcon"
-            app:layout_constraintTop_toTopOf="@+id/quoteItemHeaderIcon"
-            tools:text="Di" />
+            app:layout_constraintTop_toTopOf="@+id/quoteItemHeaderTitle"
+            app:tint="?attr/colorPrimary" />
 
         <TextView
             android:id="@+id/quoteItemHeaderTitle"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.BodyLarge"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_small"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:text="@{quoteItemHeader.animeName}"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/quoteItemHeaderIcon"
+            android:textColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/quoteItemHeaderIcon"
-            app:layout_constraintTop_toTopOf="@+id/quoteItemHeaderIcon"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Digimon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

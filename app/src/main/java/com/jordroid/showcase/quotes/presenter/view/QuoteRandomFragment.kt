@@ -1,10 +1,8 @@
 package com.jordroid.showcase.quotes.presenter.view
 
 import android.os.Bundle
-import android.view.HapticFeedbackConstants
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -58,7 +56,7 @@ class QuoteRandomFragment : Fragment() {
                  * On Swiped element, remove the element
                  */
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    with(quoteAdapter.currentList[viewHolder.adapterPosition]) {
+                    with(quoteAdapter.currentList[viewHolder.bindingAdapterPosition]) {
                         if (this is QuoteItemUi) {
                             quoteViewModel.remove(this.id)
                         }
@@ -98,6 +96,7 @@ class QuoteRandomFragment : Fragment() {
                 binding.chipNumberQuote.text = getString(R.string.number_quote_item, it.numberItem)
                 binding.chipNumberAnime.text =
                     getString(R.string.number_quote_anime, it.numberDistinctAnime)
+                binding.chipNumberDate.text = it.lastUpdateTime
             }
         }
 
@@ -105,6 +104,8 @@ class QuoteRandomFragment : Fragment() {
             quoteViewModel.searchWith("$input")
         }
 
+
+        setHasOptionsMenu(true)
 
         return rootView
     }

@@ -8,25 +8,25 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.jordroid.showcase.R
 import com.jordroid.showcase.databinding.GalleryItemBinding
-import com.jordroid.showcase.gallery.presenter.model.DoggoUi
+import com.jordroid.showcase.gallery.presenter.model.DogPictureUi
 
 /**
  * DiffUtils used for detect change in list
  */
-private val diffItemUtils = object : DiffUtil.ItemCallback<DoggoUi>() {
-    override fun areItemsTheSame(oldItem: DoggoUi, newItem: DoggoUi) =
+private val diffItemUtils = object : DiffUtil.ItemCallback<DogPictureUi>() {
+    override fun areItemsTheSame(oldItem: DogPictureUi, newItem: DogPictureUi) =
         oldItem == newItem
 
     override fun areContentsTheSame(
-        oldItem: DoggoUi,
-        newItem: DoggoUi
+        oldItem: DogPictureUi,
+        newItem: DogPictureUi
     ): Boolean {
         return oldItem == newItem
     }
 }
 
 class GalleryDoggoAdapter :
-    PagingDataAdapter<DoggoUi, DoggoGalleryViewHolder>(diffItemUtils) {
+    PagingDataAdapter<DogPictureUi, DoggoGalleryViewHolder>(diffItemUtils) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoggoGalleryViewHolder {
         return DoggoGalleryViewHolder(
@@ -46,14 +46,12 @@ class GalleryDoggoAdapter :
 class DoggoGalleryViewHolder(private val binding: GalleryItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var item: DoggoUi
+    private lateinit var item: DogPictureUi
 
-    fun bind(doggoUi: DoggoUi) {
-        item = doggoUi
+    fun bind(dogPictureUi: DogPictureUi) {
+        item = dogPictureUi
         binding.galleryItemIv.load(item.url) {
             placeholder(R.drawable.ic_baseline_pets_24)
-            crossfade(true)
-            crossfade(750)
         }
     }
 }

@@ -5,22 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/quoteBrowsingIcon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_outline_format_quote_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/quoteAnimeRv"
-        android:layout_width="0dp"
+        style="@style/verticalRecyclerView"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fadeScrollbars="true"
-        android:fadingEdge="vertical"
-        android:fadingEdgeLength="80dp"
-        android:orientation="vertical"
-        android:scrollbarStyle="outsideOverlay"
-        android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteBrowsingIcon"
         tools:itemCount="6"
         tools:listitem="@layout/browsing_anime_item" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

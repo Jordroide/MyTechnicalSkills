@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
     app:cardCornerRadius="6dp"
-    app:cardElevation="6dp">
+    app:cardElevation="6dp"
+    tools:showIn="@layout/gallery_fragment">
 
     <ImageView
         android:id="@+id/galleryItemIv"

@@ -4,4 +4,30 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">32dp</item>
     </style>
+
+    <style name="cutTopShape">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+    </style>
+
+    <style name="cutBottomShape">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
+    <style name="cutShape">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="verticalRecyclerView">
+        <item name="android:fadeScrollbars">true</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">80dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
 </resources>

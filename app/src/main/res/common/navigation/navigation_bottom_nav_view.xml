@@ -23,4 +23,10 @@
         android:label="@string/fragment_gallery_title"
         tools:layout="@layout/gallery_fragment" />
 
+    <fragment
+        android:id="@+id/navigation_fragment_cv"
+        android:name="com.jordroid.showcase.cv.presenter.view.FragmentCv"
+        android:label="@string/fragment_cv_title"
+        tools:layout="@layout/cv_fragment" />
+
 </navigation>

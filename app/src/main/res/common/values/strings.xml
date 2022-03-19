@@ -6,7 +6,9 @@
     <string name="fragment_quote_title">Random quotes</string>
     <string name="fragment_list_title">All anime available</string>
     <string name="fragment_gallery_title">Endless dogs gallery</string>
+    <string name="fragment_cv_title">Curriculum</string>
     <string name="navigation_quote_all">Quote</string>
     <string name="navigation_anime_list">Anime</string>
     <string name="navigation_gallery_list">Gallery</string>
+    <string name="navigation_cv_list">Curriculum</string>
 </resources>

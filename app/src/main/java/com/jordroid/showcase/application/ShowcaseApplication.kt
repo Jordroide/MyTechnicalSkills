@@ -15,8 +15,6 @@ class ShowcaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        DynamicColors.applyToActivitiesIfAvailable(this)
-
         startKoin {
             androidContext(this@ShowcaseApplication)
             modules(applicationModule)

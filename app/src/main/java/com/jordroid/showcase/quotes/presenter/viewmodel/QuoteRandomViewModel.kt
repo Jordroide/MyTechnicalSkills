@@ -16,6 +16,8 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 class QuoteViewModel(
     private val getQuotesUseCase: GetQuotesUseCase,
@@ -35,7 +37,14 @@ class QuoteViewModel(
     fun getQuotes(): Flow<List<QuoteUi>> =
         getQuotesUseCase.readAll().flowOn(Dispatchers.IO).map { list ->
             // Add new statistic value to the right flow
-            _quoteStatistic.emit(QuoteStatisticUi(list.size, list.distinctBy { it.anime }.size))
+            _quoteStatistic.emit(
+                QuoteStatisticUi(
+                    list.size, list.distinctBy { it.anime }.size, SimpleDateFormat(
+                        "k:mm:ss",
+                        Locale.getDefault()
+                    ).format(System.currentTimeMillis())
+                )
+            )
             // Then map all result to ui object and return to the ui
             list.toUi()
         }
